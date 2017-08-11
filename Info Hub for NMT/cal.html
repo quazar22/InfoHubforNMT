@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>NMT Info App</title>
+		<link rel="stylesheet" href="bootstrap-3.3.6-dist/css/bootstrap.css">
+		<link rel="stylesheet" href="bootstrap-3.3.6-dist/css/custom.css">
+		<link href='http://fonts.googleapis.com/css?family=Viga|Open+Sans:300' rel='stylesheet' type='text/css'>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+		<!--<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>-->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<div class='container-fluid' style='border-bottom: 1px solid #103E66; margin-bottom: 10px;'>
+			<img src='icons/nmt.png' style='width: 90%; max-height: 200px; max-width: 600px;' class='img-center'>
+		</div>
+
+                <script>
+                //Grabs data from the url below and places into id='insert' down below
+                $(document).ready(function() {
+			$('#insert').html("Loading...");
+                        $.ajax({
+                                type: "GET",
+                                url: "http://infohost.nmt.edu/~osl/cal.php",
+                                crossDomain: true,
+                                cache: false,
+				data: {
+					config : 0
+				},
+                                success: function(data) {
+                                        $('#insert').html(data);
+                                }
+                        });
+			$("#submit").click(function() {
+				$('#insert').html("Loading...");
+				$.ajax({
+					type: "GET",
+					url: "http://infohost.nmt.edu/~osl/cal.php",
+					crossDomain: true,
+					cache: false,
+					data: {
+						date : $("#date").val(),
+						config : 1
+					},
+					success: function(msg) {
+						$("#insert").html(msg);
+					}
+				});
+			});
+                });
+                </script>
+
+	</head>
+	<body>
+		<div class='container'>
+                        <div class='row'>
+				<a href='index.html'>
+				<div id='menu' class='box col-lg-2 col-md-2 col-sm-2 col-xs-2'>
+					<h5>Menu</h5>
+				</div>
+				</a>
+				<div id='heading' class='invis-box col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+					<h2>NMT Weekly Calendar</h2>
+				</div>
+				<hr>
+			</div>
+		</div>
+		<div class='container'>
+			<div class='row'>
+				<div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+					<input type="text" class="form-control" id="date" placeholder="Input MM/DD/YYYY">
+					<input id="submit" type="button" value="Submit" class="button-custom">
+				</div>
+			</div>
+		</div>
+		<div class='row' id='insert' style="font-family: Viga;">
+
+		</div>
+	</body>
+</html>

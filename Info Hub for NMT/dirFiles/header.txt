@@ -1,0 +1,69 @@
+
+<!DOCTYPE HTML>
+<html lang="en">
+<html>
+	<head>
+		<meta charset="utf-8"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>NMT Info App</title>
+		<link rel="stylesheet" href="../bootstrap-3.3.6-dist/css/bootstrap.css">
+		<link rel="stylesheet" href="../bootstrap-3.3.6-dist/css/custom.css">
+		<link href='http://fonts.googleapis.com/css?family=Viga|Open+Sans:300' rel='stylesheet' type='text/css'>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+		<div class='container-fluid' style='border-bottom: 1px solid #103E66; margin-bottom: 10px;'>
+			<img src='../icons/nmt.png' style='width: 90%; max-height: 200px; max-width: 600px;' class='img-center'>
+		</div>	
+	</head>
+	<body>
+		<div class='container'>
+			<div class='row'>
+				<a href='../index.html'>
+				<div id='menu' class='box col-lg-2 col-md-2 col-sm-2 col-xs-2'>
+					<h5>Menu</h5>
+				</div>
+				</a>
+			</div>
+			<div class='row'>
+				<div class="box">
+					<div id='heading' class='invis-box col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+					<h2>NMT Directory</h2>
+					</div>
+					<hr>
+					<div class='box col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+					<div class="btn-group-lg">
+					<button type="button" data-toggle="dropdown" class="btn btn-custom dropdown-toggle">Sort by last name... <span class="caret"></span></button>
+						<ul class="dropdown-menu">
+							<li><a href="A.html">A</a></li>
+							<li><a href="B.html">B</a></li>
+							<li><a href="C.html">C</a></li>
+							<li><a href="D.html">D</a></li>
+							<li><a href="E.html">E</a></li>
+							<li><a href="F.html">F</a></li>
+							<li><a href="G.html">G</a></li>
+							<li><a href="H.html">H</a></li>
+							<li><a href="I.html">I</a></li>
+							<li><a href="J.html">J</a></li>
+							<li><a href="K.html">K</a></li>
+							<li><a href="L.html">L</a></li>
+							<li><a href="M.html">M</a></li>
+							<li><a href="N.html">N</a></li>
+							<li><a href="O.html">O</a></li>
+							<li><a href="P.html">P</a></li>
+							<li><a href="Q.html">Q</a></li>
+							<li><a href="R.html">R</a></li>
+							<li><a href="S.html">S</a></li>
+							<li><a href="T.html">T</a></li>
+							<li><a href="U.html">U</a></li>
+							<li><a href="V.html">V</a></li>
+							<li><a href="W.html">W</a></li>
+							<li><a href="X.html">X</a></li>
+							<li><a href="Y.html">Y</a></li>
+							<li><a href="Z.html">Z</a></li>
+<!--							<li class="divider"></li>
+-->						</ul>
+					</div>
+					</div>
+					<div class="table-responsive">
+					<table class="table table-striped" style="max-width: auto; padding: auto; margin: auto;">
+                    <tbody>

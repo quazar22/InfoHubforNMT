@@ -1,0 +1,267 @@
+.container {
+	position: static;
+	width: 100%;
+	margin: 0 auto;
+	padding: 0 0;
+	font-family: "Viga", sans-serif;
+} 
+.box {
+	text-align: center;
+	border: 2px solid #f6f6f6;
+	background-color: #f6f6f6;
+	padding: 2px 0px 10px 0px;
+	margin: 0px 0px;
+	overflow: visible;
+	
+      	border-top-left-radius: 12px;
+	border-top-right-radius: 12px;
+	border-bottom-right-radius: 12px;
+	border-bottom-left-radius: 12px;
+        
+        /*max-width: 100px;*/
+        
+        height: auto;
+}
+.invis-box {
+	text-align: center;
+	background-color: none;
+	padding: 0px 0px;
+	margin: 0px 0px;
+	overflow: visible;
+	height: auto;
+}
+.table-box {
+	text-align: center;
+	background-color: #DDDDDD;
+	/*border: 1px solid #c6c6c6;*/
+	padding: 0px 0px;
+	margin: 0px 0px;
+	overflow: visible;
+	display: block;
+	border: 1px solid #c6c6c6;
+}
+.table-box:hover {
+	background-color: #c6c6c6;
+}
+.box-max {
+	height: 100%;
+	width: auto;
+	display: block;
+	padding-top: auto;
+}
+.just-max {
+	height: 100%;
+	width: auto;
+}
+.btn-custom {
+  color: #f6f6f6;
+  background-color: #123e67;
+  border-color: #dddddd;
+}
+.btn-custom:focus,
+.btn-custom:active:focus,
+.btn-custom.active:focus,
+.btn-custom.focus,
+.btn-custom:active.focus,
+.btn-custom.active.focus {
+  outline: thin dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+.btn-custom:hover,
+.btn-custom:focus,
+.btn-custom.focus {
+  color: #fff;
+  text-decoration: none;
+}
+a > div.box:active {
+	background-color: #dcdcdc;
+}
+.img-center {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+.sm-img-center {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 150%;
+	height: 150%;
+}
+.row {
+	max-width: 620px;
+	margin: auto;
+	padding: auto;
+}
+.b-spacer {
+	margin: 2px auto -8px auto;
+	border: #f6f6f6
+}
+.alignment-col {
+	margin: -10px; 
+	padding: 0px;
+	opacity: 0;
+}
+#heading {
+	margin-top: 0px;
+	padding: 0px 0px;
+}
+#heading h2{
+	margin: 0px auto 8px auto;
+}
+
+.button-custom {
+        background-color: #dddddd;
+	border-top-left-radius: 6px;
+	border-top-right-radius: 6px;
+	border-bottom-right-radius: 6px;
+	border-bottom-left-radius: 6px;
+        margin-bottom: -3px;
+        margin-top: 5px;
+        border: 1px solid #dddddd;
+        padding: 5px;
+        min-width: 100px;
+        float:right;
+}
+
+.events-button {
+        background-color: #dddddd;
+	border-top-left-radius: 6px;
+	border-top-right-radius: 6px;
+	border-bottom-right-radius: 6px;
+	border-bottom-left-radius: 6px;
+        border: 1px solid #dddddd;
+        margin-top: 8px;
+        width: 95%;
+        font-size: 25px;
+        color: #113E66;
+        padding: 5%;
+}
+
+#menu {
+	background-color: #dddddd;
+	border-top-left-radius: 6px;
+	border-top-right-radius: 6px;
+	border-bottom-right-radius: 6px;
+	border-bottom-left-radius: 6px;
+        margin-bottom: -3px;
+        float: right;
+}
+
+#menu h5 {
+        margin-bottom: 3px;
+}
+
+#menu:hover {
+	background-color: #f6f6f6;
+	border: 1px solid #113E66;
+        margin-bottom: -1px;
+}
+#back {
+	background-color: #dddddd;
+	border-top-left-radius: 6px;
+	border-top-right-radius: 6px;
+	border-bottom-right-radius: 6px;
+	border-bottom-left-radius: 6px;
+}
+#back:hover, 
+#back:focus {
+	background-color: #f6f6f6;
+	border: 1px solid #113E66;
+}
+a > div.menu-hover:hover, 
+a > div.menu-hover:focus {
+	background-color: #f6f6f6;
+}
+hr {
+	margin-top: 0px;
+	margin-bottom: 10px;
+	border-width: 0;
+	border-top: 1px solid #113E66;
+}
+h1,
+.h1 {
+  font-size: 36px;
+  color: #113E66;
+}
+h2,
+.h2 {
+  font-size: 30px;
+  color: #113E66;
+}
+h3,
+.h3 {
+  font-size: 24px;
+  color: #113E66;
+}
+h4,
+.h4 {
+  font-size: 18px;
+  color: #113E66;
+}
+h5,
+.h5 {
+  font-size: 14px;
+}
+h6,
+.h6 {
+  font-size: 12px;
+  color: #113E66;
+}
+.id {
+	font-size: inherit;
+}
+
+.cal-head {
+        color: #113e66;
+}
+
+@media (max-width: 260px) {
+	h4 {
+		font-size: 12px;
+	}
+	h5 { 
+		font-size: 10px;
+	}
+	.box-max {
+		padding: 0px 5px;
+	}
+	#menu{
+		min-width: 50px;
+	}
+	#back {
+		min-width: 50px;
+	}
+	.id {
+		font-size: 12px;
+	}
+}
+
+@media (max-width: 195px) {
+	h4 {
+		font-size: 10px;
+	}
+	h5 {
+		font-size: 10px;
+	}
+	a > div.box {
+		margin: -6px 0px;
+	}
+}
+.list-group-item:hover,
+.list-group-item:focus {
+	background-color: #fff;
+}
+/*ul li {
+	padding: 0px;
+}
+ul li a {
+	margin: 0px; 
+	display: block;
+	width: 100%;
+	height: 100%;
+} */
+iframe.hide {
+	color: white;
+}
