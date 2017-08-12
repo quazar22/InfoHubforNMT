@@ -22,6 +22,12 @@
                 //Grabs data from the url below and places into id='insert' down below
 		$(document).ready(function(){
                         $("#insert").html("Loading...");
+			timer = setTimeout(function(){
+				$('#insert3').html('Timed out...');
+				$('#insert3').show();
+				$('#insert').hide();
+			}, 10000);
+			
 			$.ajax({
                                 type: "GET",
                                 url: "http://infohost.nmt.edu/~osl/crs_off.php",
@@ -29,6 +35,10 @@
                                 cache: false,
                                 success: function(update) {
                                         $("#insert").html(update);
+					
+					timer = setTimeout(function(){
+						$('#insert3').hide();			
+					}, 10000);
                                 }
                         });
 			$("#submit").click(function() {
@@ -48,8 +58,9 @@
 				});
 			});
 		});
-
-	        </script>
+		clearTimeout(timer);
+	      
+		</script>
 
 	</head>
 	<body>
@@ -79,6 +90,9 @@
 
 		<div class="row" id="insert2" style="font-family: Viga;">
 
+		</div>
+		
+		<div class='row' id='insert3' style="font-family: Viga;">
 		</div>
 	</body>
 </html>
