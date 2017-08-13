@@ -41,6 +41,13 @@
 					}, 10000);
                                 }
                         });
+			$.ajax({
+				type: "GET",
+				url: "http://infohost.nmt.edu/~osl/user_stats.php",
+				crossDomain: true,
+				cache: false,
+				data: {page : 7}
+			});
 			$("#submit").click(function() {
 				$("#insert2").html("Loading...");
 				$.ajax({
