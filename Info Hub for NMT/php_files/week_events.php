@@ -5,7 +5,6 @@ header("Access-Control-Allow-Headers: *");
 
 $file = file("week_events.txt");
 
-//some other format would be better for checks
 $today = date("F j, Y");
 $bound = date("F j, Y", strtotime($today . "+7 day"));
 //$data = "";

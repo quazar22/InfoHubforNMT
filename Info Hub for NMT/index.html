@@ -17,8 +17,7 @@
 
 		<!-- scripts -->
 
-		<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>-->
-                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
 		<!-- header -->
@@ -27,24 +26,40 @@
 			<img src='icons/nmt.png' style='width: 90%; max-height: 200px; max-width: 600px;' class='img-center'>
 		</div>
 
+		<script>
+
+		$(document).ready(function(){
+			$("#banweb").click(function() {
+				$.ajax({
+					type: "GET",
+					url: "http://infohost.nmt.edu/~osl/user_stats.php",
+					crossDomain: true,
+					cache: false,
+					data: {page : 0}
+				});
+			});
+		});
+
+		</script>
+
 	</head>
 	<body>
 		<div class='container'>
 			<div class='row'>
 				<a href='#' onclick="window.open('https://banweb7.nmt.edu/pls/PROD/twbkwbis.P_GenMenu?name=homepage', '_system');">
-					<div class='box col-lg-4 col-md-4 col-sm-4 col-xs-4'>
+					<div class='box col-lg-4 col-md-4 col-sm-4 col-xs-4' id='banweb'>
 						<img src='icons/banwebicon.png' class='img-center b-spacer'>
 						<h4>Banweb </h4>
 					</div>
 				</a>
                                 <a href='activities.html'>
-					<div class='box col-lg-4 col-md-4 col-sm-4 col-xs-4'>
+					<div class='box col-lg-4 col-md-4 col-sm-4 col-xs-4' id='s_events'>
 						<img src='icons/campus.png' class='img-center b-spacer'>
 						<h4>Student Events</h4>
 					</div>
 				</a>
 				<a href='b-hours.html'>
-					<div class='box col-lg-4 col-md-4 col-sm-4 col-xs-4'>
+					<div class='box col-lg-4 col-md-4 col-sm-4 col-xs-4' id='b_hours'>
 						<img src='icons/businesshours.png' class='img-center b-spacer'>
 						<h4>Business Hours</h4>
 					</div>
@@ -53,20 +68,19 @@
 				<div class='col-lg-12 col-md-12 col-sm-12 col-xs-12'>
                                 </div>
 				<a href='osl.html'>
-					<div class='box col-lg-4 col-md-4 col-sm-4 col-xs-4'>
+					<div class='box col-lg-4 col-md-4 col-sm-4 col-xs-4' id='osl'>
 						<img src='icons/osl.png' class='img-center b-spacer button-fix' style='border: #f6f6f6'>
 						<h4>OSL</h4>
 					</div>
 				</a>
 				<a href='directory.html'>
-					<div class='box col-lg-4 col-md-4 col-sm-4 col-xs-4'>
+					<div class='box col-lg-4 col-md-4 col-sm-4 col-xs-4' id='dir'>
 						<img src='icons/Directory.png' class='img-center b-spacer'>
 						<h4>Directory</h4>
 					</div>
 				</a>
-				<!--<a href='#' onclick="window.open('http://www.nmt.edu/nmt-calendar', '_system');">-->
 				<a href='cal.html'>
-					<div class='box col-lg-4 col-md-4 col-sm-4 col-xs-4'>
+					<div class='box col-lg-4 col-md-4 col-sm-4 col-xs-4'id='cal'>
 						<img src='icons/calendar.png' class='img-center b-spacer'>
 						<h4>Calendar of Events</h4>
 					</div>
@@ -81,7 +95,7 @@
 					</div>
 				</a>-->
 				<a href='advising.html'>
-					<div class='box col-lg-4 col-md-4 col-sm-4 col-xs-4'>
+					<div class='box col-lg-4 col-md-4 col-sm-4 col-xs-4' id='adv'>
 						<img src='icons/advising.png' class='img-center b-spacer'>
 						<h4>Advising</h4>
 					</div>
@@ -93,7 +107,7 @@
 					</div>
 				</a>-->
 				<a href='courses.html'>
-					<div class='box col-lg-4 col-md-4 col-sm-4 col-xs-4'>
+					<div class='box col-lg-4 col-md-4 col-sm-4 col-xs-4' id='crs_off'>
 						<img src='icons/schedule.png' class='img-center b-spacer'>
 						<h4>Course Offerings</h4>
 					</div>
@@ -114,7 +128,6 @@
 						<h4>Tips for Newcomers</h4>
 					</div>
 				</a> -->
-
 			</div>
 		</div>
 	</body>

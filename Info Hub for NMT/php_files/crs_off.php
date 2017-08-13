@@ -11,7 +11,7 @@ $term_name = array();
 $depart_code = array();
 $depart_name = array();
 
-$array = file("https://banweb7.nmt.edu/pls/PROD/hwzkcrof.p_uncgslctcrsoff");
+$array = file("http://banweb7.nmt.edu/pls/PROD/hwzkcrof.p_uncgslctcrsoff");
 $term = "<SELECT NAME=\"p_term\" SIZE=\"1\">";
 $check = 0;
 $count1 = 0;

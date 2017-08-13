@@ -24,7 +24,7 @@ function get_string_between($string, $start, $end){
      return substr($string,$ini,$len);
 }
 
-$url = "https://banweb7.nmt.edu/pls/PROD/hwzkcrof.P_UncgSrchCrsOff";
+$url = "http://banweb7.nmt.edu/pls/PROD/hwzkcrof.P_UncgSrchCrsOff";
 
 $items = array('p_term' => $_GET['term'], 'p_subj' => $_GET['subj']);
 

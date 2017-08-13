@@ -14,6 +14,21 @@
 			<img src='icons/nmt.png' style='width: 90%; max-height: 200px; max-width: 600px;' class='img-center'>
 		</div>
 	</head>
+
+	<script>
+
+	$(document).ready(function(){
+		$.ajax({
+			type: "GET",
+			url: "http://infohost.nmt.edu/~osl/user_stats.php",
+			crossDomain: true,
+			cache: false,
+			data: {page : 3}
+		});
+	});
+
+	</script>
+
 	<body>
 		<div class='container'>
 			<div class='row'>
