@@ -32,15 +32,13 @@ if($check == 0) {
         array_push($file_lines, $new_arr);
 }
 //perform addition based on day and page index (0-7, 8 total pages i'm interested in)
+//then write 2D array to file
 $file = fopen("user_stats.txt", "w");
 foreach($file_lines as &$line) {
+        $i = 0;
         if($line[0] == $today) {
                 $line[$page] += 1;
         }
-}
-//writes 2D array to file, comma separated
-foreach($file_lines as &$line) {
-        $i = 0;
         foreach($line as $item) {
                 $i == 8 ? $item .= "\n" : $item .= ",";
                 fwrite($file, $item);
