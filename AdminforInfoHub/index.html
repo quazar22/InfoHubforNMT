@@ -1,0 +1,120 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>InfoHub Admin Analytics</title>
+
+		<!-- CSS Stylesheets -->
+
+		<link rel="stylesheet" href="bootstrap-3.3.6-dist/css/bootstrap.css">
+		<link rel="stylesheet" href="bootstrap-3.3.6-dist/css/custom.css">
+
+		<!-- fonts -->
+
+		<link href='http://fonts.googleapis.com/css?family=Viga|Open+Sans:300' rel='stylesheet' type='text/css'>
+
+		<!-- scripts -->
+
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+		<script language="javascript" type="text/javascript" src="Chart.js-2.6.0/dist/Chart.bundle.js"></script>
+
+		<!-- header -->
+
+		<div class='container-fluid' style='border-bottom: 1px solid #103E66; margin-bottom: 10px;'>
+			<img src='icons/nmt.png' style='width: 90%; max-height: 200px; max-width: 600px;' class='img-center'>
+		</div>
+
+	</head>
+
+	<script>
+
+	$(document).ready(function() {
+		var result;
+		$.ajax({
+			type: "GET",
+			url: "http://infohost.nmt.edu/~osl/stats_acquire.php",
+			crossDomain: true,
+			cache: false,
+			async: false,
+			success: function(data) {
+				result = data;
+			}
+		});
+		var str_new = result.split(',');
+		var len = str_new.length;
+		var d1 = [];
+		for(var i = 0; i < len; i++)
+			d1.push(str_new[i]);
+		var config = {
+	            type: 'line',
+		    data: {
+	                labels: ["Bweb", "S-Events", "B-Hours", "OSL", "Dir", "CoE", "Adv", "CrsOff"],
+	                datasets: [{
+	                    label: "Number of Visits",
+	                    backgroundColor: 'rgb(255, 80, 80)',
+	                    borderColor: 'rgb(255, 80, 80)',
+	                    data: d1,
+	                    fill: false,
+	                }]
+	            },
+	            options: {
+	                responsive: true,
+	                // title:{
+	                //     display:true,
+	                //     text:'Chart.js Line Chart'
+	                // },
+	                tooltips: {
+	                    mode: 'index',
+	                    intersect: false,
+	                },
+	                hover: {
+	                    mode: 'nearest',
+	                    intersect: true
+	                },
+	                scales: {
+	                    xAxes: [{
+	                        display: true,
+	                        scaleLabel: {
+	                            display: true,
+	                            labelString: 'Page'
+	                        }
+	                    }],
+	                    yAxes: [{
+	                        display: true,
+	                        scaleLabel: {
+	                            display: true,
+	                            labelString: 'Visits'
+	                        }
+	                    }]
+	                }
+	            }
+	        };
+
+		window.onload = function() {
+	            var ctx = document.getElementById("canvas").getContext("2d");
+	            window.myLine = new Chart(ctx, config);
+	        };
+	});
+
+
+	</script>
+
+	<body>
+		<div class='container'>
+			<a href='index.html'>
+			<div id='menu' class='box col-lg-2 col-md-2 col-sm-2 col-xs-2'>
+				<h5>Reload</h5>
+			</div>
+			</a>
+			<h2 style="text-align: center;">Total Visits Per Page</h2>
+			<div class='row'>
+				<div>
+			            <canvas id="canvas" height="300px" width="300px"></canvas>
+			        </div>
+			</div>
+		</div>
+	</body>
+</html>
