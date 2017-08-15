@@ -36,9 +36,7 @@
                                 success: function(update) {
                                         $("#insert").html(update);
 					
-					timer = setTimeout(function(){
-						$('#insert3').hide();			
-					}, 10000);
+					clearTimeout(timer);
                                 }
                         });
 			$.ajax({
@@ -65,7 +63,6 @@
 				});
 			});
 		});
-		clearTimeout(timer);
 	      
 		</script>
 
