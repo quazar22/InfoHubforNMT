@@ -8,6 +8,7 @@ $array = file("names_info.txt", FILE_IGNORE_NEW_LINES);
 $final = "";
 $final_not_found = "";
 $final_last = "";
+$final_first = "";
 
 $FIRST_NAME = $_GET['fname'];
 $LAST_NAME = $_GET['lname'];
@@ -19,10 +20,12 @@ $not_found .= "If you are unsure of first name you may enter in only a last name
 $found = 0;
 $found_mis = 0;
 $found_last = 0;
+$found_first = 0;
 
 $i = 0; /* 0 = name, 1 = number, 2 = office, 3 = email */
 $j = 0;
 $k = 0;
+$l = 0;
 
 foreach ($array as $value) {
 	
@@ -131,6 +134,52 @@ foreach ($array as $value) {
 			
 		}
 
+	/* If the user has entered a first name but not a last name */	
+	} elseif (strlen($FIRST_NAME) > 1 && strlen($LAST_NAME) == 0) {
+		
+		if ($l == 0) {
+			$value_first = substr($value, 0, strpos($value, " "));
+			similar_text(strtolower($value_first), strtolower($FIRST_NAME), $percent);
+			
+			if ($percent > 90) {
+				$final_first .= "<div class=\"panel panel-default\" style=\"margin-top: 15px;\">\n";
+				$final_first .= "<div class=\"panel-heading\" style=\"background-color: #113E66; color: white; padding: 6px;\">" . $value . " </div>\n";
+				$match = 1;
+			}	
+			$l++;
+			
+		} elseif ($l == 1) {
+			
+			if ($match == 1) {
+				$final_first .= "<div class=\"panel-body\" style=\"font-size: 14px; padding: 6px;\">\n";
+				$final_first .= "<p style=\"margin-bottom: 0px;\">" . " Number: " . $value . "</p></div>\n";
+				$final_first .= "<ul class=\"list-group\" style=\"margin-top: 0px;\">\n";
+			}
+			$l++;
+			
+		} elseif ($l == 2) {
+			if ($match == 1) {
+				$final_first .= "<li class=\"list-group-item\" style=\"margin-bottom: 0px; text-align: left; font-size: 14px; padding: 6px;\">Office: " . $value . "</li>\n";	
+			}
+			$l++;
+			
+		} elseif ($l == 3 ) {
+			if ($match == 1) {
+				$final_first .= "<li class=\"list-group-item\" style=\"margin-bottom: 0px; text-align: left; font-size: 14px; padding: 6px;\">Email: " . $value . "</li>\n";	
+			}
+			$l++;
+			
+		} elseif ($l == 4) {
+			
+			if ($match == 1) {
+				$final_first .= "</ul>\n</div>\n";
+				$l = 0;
+				$match = 0;
+				$found_first++;
+			}
+			$l = 0;
+			
+		}
 	}
 	
 }
@@ -143,11 +192,15 @@ if ($found == 1 && strlen($full_name) !== 1) {
 } elseif (strlen($full_name) == 1) { 
 	echo "<h4> Input Required... </h4>";
 
-/* if user did not enter in a last name */
-} elseif (strlen($LAST_NAME) == 0) {
-	echo "<h4> 'Last Name' Field Requires Input... </h4>";
+/* if user entered in a first name but not a last name */	
+} elseif (strlen($LAST_NAME) == 0 && strlen($FIRST_NAME) > 1) {
+	if ($found_first > 0) {
+		echo $final_first;
+	} else {
+		echo "Could not find a first name similar enough to " . $FIRST_NAME . " ...\n" . "Please check your spelling and retry.\n";
+	}
 
-
+/* if user entered in a last name but not a first name */	
 } elseif (strlen($FIRST_NAME) == 0 && strlen($LAST_NAME) > 1) {
 	if ($found_last > 0) {
 		echo $final_last;
