@@ -1,4 +1,3 @@
-
 <!DOCTYPE HTML>
 <html lang="en">
 <html>
@@ -17,7 +16,6 @@
 	</head>
 
 	<script>
-
 	$(document).ready(function(){
 		$.ajax({
 			type: "GET",
@@ -27,7 +25,6 @@
 			data: {page : 4}
 		});
 	});
-
 	</script>
 
 	<body>
@@ -68,12 +65,20 @@
 		<div class='row' id='insert' style="font-family: Viga;">
 
 		</div>
+		<div class='row' id='insert3' style="font-family: Viga;">
+		</div>
 
 		<script>
-
 			$(document).ready(function() {
 				$("#submit").click(function() {
 					$('#insert').html("Loading...");
+					
+					timer = setTimeout(function(){
+							$('#insert3').html('Timed out...');
+							$('#insert3').show();
+							$('#insert').hide();
+					}, 10000);
+					
 					// it's $("#UNIQUE_HTML_ID").val();
 					// then it just grabs the value
 					$.ajax({
@@ -87,6 +92,7 @@
 						},
 						success: function(msg) {
 							$("#insert").html(msg);
+							clearTimeout(timer);
 						}
 					});
 				});
@@ -97,7 +103,6 @@
 					$("#insert").html(str);
 				});
 	                });
-
                 </script>
 
 
