@@ -19,6 +19,12 @@
                 //Grabs data from the url below and places into id='insert' down below
                 $(document).ready(function() {
 			$('#insert').html("Loading...");
+			timer = setTimeout(function(){
+				$('#insert3').html('Timed out...');
+				$('#insert3').show();
+				$('#insert').hide();
+			}, 10000);
+			
                         $.ajax({
                                 type: "GET",
                                 url: "http://infohost.nmt.edu/~osl/cal.php",
@@ -29,6 +35,7 @@
 				},
                                 success: function(data) {
                                         $('#insert').html(data);
+					clearTimeout(timer);
                                 }
                         });
 			$.ajax({
@@ -82,6 +89,8 @@
 		</div>
 		<div class='row' id='insert' style="font-family: Viga;">
 
+		</div>
+		<div class='row' id='insert3' style="font-family: Viga;">
 		</div>
 	</body>
 </html>
