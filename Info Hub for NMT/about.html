@@ -17,12 +17,21 @@
 		<div class='container-fluid' style='border-bottom: 1px solid #103E66; margin-bottom: 10px;'>
 			<img src='icons/nmt.png' style='width: 90%; max-height: 200px; max-width: 600px;' class='img-center'>
 		</div>
+		<div class='row' id='insert3' style="font-family: Viga;">
+		</div>
 
                 <script>
                 //Grabs data from the url below and places into id='insert' down below
 
 		$(document).ready(function(){
                         $("#insert").html("Loading...");
+			timer = setTimeout(function(){
+				$('#insert3').html('Timed out...');
+				$('#insert3').show();
+				$('#insert').hide();
+			}, 10000);
+			
+			
 			$.ajax({
                                 type: "GET",
                                 url: "http://infohost.nmt.edu/~osl/crs_off.php",
@@ -30,6 +39,7 @@
                                 cache: false,
                                 success: function(update) {
                                         $('#insert').html(update);
+					clearTimeout(timer);
                                 }
                         });
 			$("#submit").click(function() {
