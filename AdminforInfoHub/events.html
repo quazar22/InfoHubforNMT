@@ -4,58 +4,55 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>NMT Info App</title>
+		<title>Info Hub for NMT</title>
+
+		<!-- CSS Stylesheets -->
 
 		<link rel="stylesheet" href="bootstrap-3.3.6-dist/css/bootstrap.css">
 		<link rel="stylesheet" href="bootstrap-3.3.6-dist/css/custom.css">
+
+		<!-- fonts -->
+
 		<link href='http://fonts.googleapis.com/css?family=Viga|Open+Sans:300' rel='stylesheet' type='text/css'>
 
+		<!-- scripts -->
 
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+		<!-- header -->
 
 		<div class='container-fluid' style='border-bottom: 1px solid #103E66; margin-bottom: 10px;'>
 			<img src='icons/nmt.png' style='width: 90%; max-height: 200px; max-width: 600px;' class='img-center'>
 		</div>
 
-                <script type="text/javascript" charset="utf-8">
-                //Grabs data from the url below and places into id='insert' down below
+		<script>
 		$(document).ready(function(){
-                        $("#insert").html("Loading...");
-			timer = setTimeout(function(){
-				$('#insert3').html('Timed out...');
-				$('#insert3').show();
-				$('#insert').hide();
-			}, 10000);
-			
-			$.ajax({
-                                type: "GET",
-                                url: "http://infohost.nmt.edu/~osl/crs_off.php",
-                                crossDomain: true,
-                                cache: false,
-                                success: function(update) {
-                                        $("#insert").html(update);
-
-					clearTimeout(timer);
-                                }
-                        });
 			$.ajax({
 				type: "GET",
-				url: "http://infohost.nmt.edu/~osl/user_stats.php",
+				url: "http://infohost.nmt.edu/~osl/event_add.php",
 				crossDomain: true,
 				cache: false,
-				data: {page : 7}
+				data: {
+					config: 0
+				},
+				success: function(msg) {
+					$("#insert").html(msg);
+				}
 			});
 			$("#submit").click(function() {
 				$("#insert2").html("Loading...");
 				$.ajax({
 					type: "GET",
-					url: "http://infohost.nmt.edu/~osl/crs_off_purl.php",
+					url: "http://infohost.nmt.edu/~osl/event_add.php",
 					crossDomain: true,
 					cache: false,
 					data: {
-						term : $("#p_term").val(),
-						subj : $("#p_subj").val()
+						config: 1,
+						date : $("#date").val(),
+						time: $("#time").val(),
+						title: $("#title").val(),
+						desc: $("#desc").val(),
 					},
 					success: function(msg) {
 						$("#insert2").html(msg);
@@ -63,7 +60,6 @@
 				});
 			});
 		});
-
 		</script>
 
 	</head>
@@ -76,27 +72,21 @@
 				</div>
 				</a>
 				<div id="heading" class="invis-box col-lg-12 col-md-12 col-sm-12 col-xs-12">
-					<h2>Course Offerings</h2>
+					<h2>Add Events</h2>
 				</div>
 				<hr>
 			</div>
 		</div>
-
 		<div class="row" id="insert" style="font-family: Viga;">
 
 		</div>
-
 		<div class="row" style="font-family: Viga;">
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 				<input id="submit" type="button" value="Submit" class="button-custom">
 			</div>
 		</div>
-
 		<div class="row" id="insert2" style="font-family: Viga;">
 
-		</div>
-
-		<div class='row' id='insert3' style="font-family: Viga;">
 		</div>
 	</body>
 </html>
